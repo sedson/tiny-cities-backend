@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const express = require('express');
+const randomCityName = require('./cityname.js')
 
 
 const citySchema = new Schema({
@@ -47,7 +48,7 @@ router.delete('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   const entry = {
-    title: req.body.title,
+    title: randomCityName(),
     cityData: req.body.cityData,
     time: Date.now(),
   }
@@ -67,7 +68,7 @@ router.put('/:id', (req, res) => {
   const update = {
     time: Date.now(),
     cityData: req.body.cityData,
-    title: req.body.title
+    // title: req.body.title
   }
 
   City.findByIdAndUpdate(req.params.id, update, {new: true}, (err, data) => {
