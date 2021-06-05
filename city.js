@@ -26,7 +26,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  console.log('get hit')
   City.findById(req.params.id, (err, data) => {
     if (err) {
       res.status(400).json({hi: 'oof'});
@@ -68,7 +67,6 @@ router.put('/:id', (req, res) => {
   const update = {
     time: Date.now(),
     cityData: req.body.cityData,
-    // title: req.body.title
   }
 
   City.findByIdAndUpdate(req.params.id, update, {new: true}, (err, data) => {

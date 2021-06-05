@@ -24,13 +24,6 @@ db.on('error', (err)=> { console.log('ERROR: ', err)});
 db.on('connected', ()=> { console.log("mongo connected")});
 db.on('disconnected', ()=> { console.log("mongo disconnected")});
 
-
-
-
-
-
-
-
 // CORS config
 const cors = require('cors');
 const corsOPTS  ={
@@ -54,5 +47,4 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log('Listening...')
-  console.log(cors)
 })
