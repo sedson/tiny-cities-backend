@@ -7,7 +7,7 @@ const app = express();
 
 // MONGOOSE config
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://127.0.0.1:27017/tinycities';
+const mongoURI = process.env.DB || 'mongodb://127.0.0.1:27017/tinycities';
 
 const mongooseOpts = {
   useFindAndModify: false,
